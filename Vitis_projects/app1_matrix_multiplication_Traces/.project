@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>app1_matrix_multiplication_Traces</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.linuxtools.tmf.project.nature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>Traces/Run_Nov-14_11-22/APM_Trace_Nov-14_11-22/APM_Trace_Nov-14_11-22_</name>
+			<type>1</type>
+			<location>/home/disc/m.arrive/Documents/Xilinx/Vitis_projects/app1_matrix_multiplication_Traces/Traces/.bookmarks</location>
+		</link>
+		<link>
+			<name>Traces/Run_Nov-14_11-22/PS_Trace_Nov-14_11-22/PS_Trace_Nov-14_11-22_</name>
+			<type>1</type>
+			<location>/home/disc/m.arrive/Documents/Xilinx/Vitis_projects/app1_matrix_multiplication_Traces/Traces/.bookmarks</location>
+		</link>
+		<link>
+			<name>Traces/Run_Nov-14_15-01/APM_Trace_Nov-14_15-01/APM_Trace_Nov-14_15-01_</name>
+			<type>1</type>
+			<location>/home/disc/m.arrive/Documents/Xilinx/Vitis_projects/app1_matrix_multiplication_Traces/Traces/.bookmarks</location>
+		</link>
+		<link>
+			<name>Traces/Run_Nov-14_15-01/PS_Trace_Nov-14_15-01/PS_Trace_Nov-14_15-01_</name>
+			<type>1</type>
+			<location>/home/disc/m.arrive/Documents/Xilinx/Vitis_projects/app1_matrix_multiplication_Traces/Traces/.bookmarks</location>
+		</link>
+	</linkedResources>
+</projectDescription>

@@ -1,13 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #include "platform.h"
 #include "xil_printf.h"
-#include "xtime_l.h"	// XTime_GetTime()
+#include "xtime_l.h"    // XTime_GetTime()
 
 #define CLS 32
 #define SM (CLS / sizeof(float)) // Submatrix size
 #define DIM 512 // Adjust dimension as needed for testing
-#define TIMEDIFF(t1,t2)	(t2 - t1)
+#define TIMEDIFF(t1,t2)    (t2 - t1)
 #define MILLISECONDS(t) (1000.0 * t / COUNTS_PER_SECOND)
 
 // Globals
@@ -28,35 +29,30 @@ void endTest()
     printf("Run-time = %.2f msec...\n", msec);
 }
 
-void Multiply_New(float **A, float **B, float **Res, long dim) {
-    for (int i = 0; i < dim; i += SM) {
-        for (int j = 0; j < dim; j += SM) {
-            for (int k = 0; k < dim; k += SM) {
-                float *rres = &Res[i][j];
-                float *rmul1 = &A[i][k];
-                for (int i2 = 0; i2 < SM; ++i2, rres += dim, rmul1 += dim) {
-                    float *rmul2 = &B[k][j];
-                    for (int k2 = 0; k2 < SM; ++k2, rmul2 += dim) {
-                        for (int j2 = 0; j2 < SM; ++j2) {
-                            rres[j2] += rmul1[k2] * rmul2[j2];
-                        }
-                    }
-                }
-            }
-        }
-    }
+void Multiply(float **A, float **B, float **Res, long dim)
+{
+	for (int i = 0; i < dim; i++)
+	{
+		for (int j = 0; j < dim; j++)
+		{
+			for (int Index = 0; Index < dim; Index++)
+			{
+				Res[i][j] += A[i][Index] * B[Index][j];
+			}
+		}
+	}
 }
 
 void initialize_matrix(float **matrix, long dim) {
     if (matrix == NULL) {
-    	print("Error: Matrix is NULL!\n");
+    	xil_printf("Error: Matrix is NULL!\r\n");
         return;  // Exit if the matrix is NULL
     }
 
     // Loop through all elements of the matrix to initialize them
     for (int i = 0; i < dim; i++) {
         if (matrix[i] == NULL) {
-        	printf("Error: Row %d is NULL!\n", i);
+        	xil_printf("Error: Row %d is NULL!\r\n", i);
             return;  // Exit if a row is NULL
         }
         for (int j = 0; j < dim; j++) {
@@ -67,8 +63,16 @@ void initialize_matrix(float **matrix, long dim) {
 
 float **allocate_matrix(long dim) {
     float **matrix = (float **)malloc(dim * sizeof(float *));
+    if (matrix == NULL) {
+        xil_printf("Memory allocation failed!\r\n");
+        exit(1);  // or handle the error appropriately
+    }
     for (int i = 0; i < dim; i++) {
         matrix[i] = (float *)calloc(dim, sizeof(float));
+        if (matrix[i] == NULL) {
+            xil_printf("Memory allocation failed for row %d!\r\n", i);
+            exit(1); // Handle error appropriately
+        }
     }
     return matrix;
 }
@@ -76,36 +80,42 @@ float **allocate_matrix(long dim) {
 void free_matrix(float **matrix, long dim) {
     for (int i = 0; i < dim; i++) {
         free(matrix[i]);
+        matrix[i] = NULL; // Avoid double-free
     }
     free(matrix);
+    matrix = NULL; // Avoid double-free
 }
 
 int main() {
-    for(int i = 0; i<10; i++){
-        init_platform();
-        printf("The platform is ready for iteration %d!\n\r", i);
+    init_platform();
+    print("The application is ready!\n\r");
 
-        float **A = allocate_matrix(DIM);
-        float **B = allocate_matrix(DIM);
-        float **Res = allocate_matrix(DIM);
+    for (int i = 0; i < 10; i++) {
+    	sleep(10);
+        xil_printf("Iteration number %d starting...\n\r", i+1);
+		float **A = allocate_matrix(DIM);
+		float **B = allocate_matrix(DIM);
+		float **Res = allocate_matrix(DIM);
 
-        initialize_matrix(A, DIM);
-        initialize_matrix(B, DIM);
+		if (A == NULL || B == NULL || Res == NULL) {
+			xil_printf("Matrix allocation failed!\n\r");
+			return 1;
+		}
 
-        startTest();
-        Multiply_New(A, B, Res, DIM);
-    	endTest();
+		initialize_matrix(A, DIM);
+		initialize_matrix(B, DIM);
 
-        free_matrix(A, DIM);
-        free_matrix(B, DIM);
-        free_matrix(Res, DIM);
+		startTest();
+		Multiply(A, B, Res, DIM);
+		endTest();
 
-        print("The iteration ran successfully!\n\r");
-    	cleanup_platform();
+		free_matrix(A, DIM);
+		free_matrix(B, DIM);
+		free_matrix(Res, DIM);
+        xil_printf("Iteration number %d ended!\n\r", i+1);
     }
-
     print("The application ran successfully!\n\r");
-	cleanup_platform();
+    cleanup_platform();
 
     return 0;
 }
