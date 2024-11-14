@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="app1_matrix_multiplication" location="/home/disc/m.arrive/Documents/Xilinx/Vitis_projects/app1_matrix_multiplication" platform="/home/disc/m.arrive/Documents/Xilinx/Vitis_projects/spm_platform_sandbox/export/spm_platform_sandbox/spm_platform_sandbox.xpfm" platformUID="xilinx:zcu102::0.0(custom)" systemProject="app1_matrix_multiplication_system" sysConfig="spm_platform_sandbox" runtime="C/C++" cpu="standalone_domain" cpuInstance="psu_cortexa53_0" os="standalone" mssSignature="ed112332de1b17e9b48d442c20740823">
+  <configuration name="Debug" id="xilinx.gnu.arm.a53.exe.debug.1272646094">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.arm.a53.exe.release.750851848" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>

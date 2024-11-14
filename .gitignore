@@ -1,0 +1,12 @@
+# Ignore everything
+*
+
+# Allow the .gitignore file itself
+!.gitignore
+
+# Allow Vitis_projects directory and its app folders
+!Vitis_projects/
+!Vitis_projects/app*/
+
+# Allow all files and subdirectories within each appXXXXXX folder
+!Vitis_projects/app**/**
