@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sdkproject:SdkProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sdkproject="http://www.xilinx.com/sdkproject" name="version1" location="/home/disc/m.arrive/Vitis/version1" platform="/home/disc/m.arrive/Vitis/apm_profile_platform/export/apm_profile_platform/apm_profile_platform.xpfm" platformUID="xilinx:zcu102::0.0(custom)" systemProject="version1_system" sysConfig="apm_profile_platform" runtime="C/C++" cpu="standalone_domain" cpuInstance="psu_cortexa53_0" os="standalone" mssSignature="8acc2e4085751127c80bd2678b58731d">
+  <configuration name="Debug" id="xilinx.gnu.arm.a53.exe.debug.1994494000">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+    <lastBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <configuration name="Release" id="xilinx.gnu.arm.a53.exe.release.1553982415" dirty="true">
+    <configBuildOptions xsi:type="sdkproject:SdkOptions"/>
+  </configuration>
+  <template appTemplateName="hello_world"/>
+</sdkproject:SdkProject>

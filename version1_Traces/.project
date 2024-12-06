@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>version1_Traces</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.linuxtools.tmf.project.nature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>Traces/Run_Dec-06_10-16/APM_Trace_Dec-06_10-16/APM_Trace_Dec-06_10-16_</name>
+			<type>1</type>
+			<location>/home/disc/m.arrive/Vitis/version1_Traces/Traces/.bookmarks</location>
+		</link>
+		<link>
+			<name>Traces/Run_Dec-06_10-16/PS_Trace_Dec-06_10-16/PS_Trace_Dec-06_10-16_</name>
+			<type>1</type>
+			<location>/home/disc/m.arrive/Vitis/version1_Traces/Traces/.bookmarks</location>
+		</link>
+		<link>
+			<name>Traces/Run_Dec-06_10-44/APM_Trace_Dec-06_10-44/APM_Trace_Dec-06_10-44_</name>
+			<type>1</type>
+			<location>/home/disc/m.arrive/Vitis/version1_Traces/Traces/.bookmarks</location>
+		</link>
+		<link>
+			<name>Traces/Run_Dec-06_10-44/PS_Trace_Dec-06_10-44/PS_Trace_Dec-06_10-44_</name>
+			<type>1</type>
+			<location>/home/disc/m.arrive/Vitis/version1_Traces/Traces/.bookmarks</location>
+		</link>
+		<link>
+			<name>Traces/Run_Dec-06_11-01/APM_Trace_Dec-06_11-01/APM_Trace_Dec-06_11-01_</name>
+			<type>1</type>
+			<location>/home/disc/m.arrive/Vitis/version1_Traces/Traces/.bookmarks</location>
+		</link>
+		<link>
+			<name>Traces/Run_Dec-06_11-01/PS_Trace_Dec-06_11-01/PS_Trace_Dec-06_11-01_</name>
+			<type>1</type>
+			<location>/home/disc/m.arrive/Vitis/version1_Traces/Traces/.bookmarks</location>
+		</link>
+	</linkedResources>
+</projectDescription>
